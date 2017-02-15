@@ -35,6 +35,11 @@ public class OpenWeatherBuilderRequest {
         return this;
     }
 
+    public OpenWeatherBuilderRequest setMode(String mode){
+        this.url += new StringBuilder().append("&mode=").append(mode);
+        return this;
+    }
+
     public String build() {
         return new StringBuilder().append(this.url).append("&APPID=c893442b753870781d1f92e6457cd9a3").toString();
     }

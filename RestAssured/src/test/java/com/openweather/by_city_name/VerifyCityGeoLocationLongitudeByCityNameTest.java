@@ -22,7 +22,7 @@ public class VerifyCityGeoLocationLongitudeByCityNameTest extends BaseTest {
     @Test
     public void verifyCityGeoLocationLongitudeTest() {
         String request = new OpenWeatherBuilderRequest().setCityName("Brest,by").build();
-        float expectedResult = Float.parseFloat("23.7");
+        float expectedResult = Float.parseFloat("23.69F");
 
         Response response = get(request);
         assertThat(response.getStatusCode(), is(equalTo(200))); //проверили, что сервис возвращает на статус 200 ОК

@@ -2,6 +2,7 @@ package com.openweather.by_city_id;
 
 import com.openweather.BaseTest;
 import com.openweather.builder.OpenWeatherBuilderRequest;
+import io.qameta.allure.Feature;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -15,13 +16,13 @@ import static org.hamcrest.Matchers.is;
 /**
  * Created by Raman_Patsiayuk
  */
+@Feature("City geo location tests by city Id")
 public class VerifyCityGeoLocationLongitudeByCityIdTest extends BaseTest {
     //static final Logger LOGGER = Logger.getLogger(OpenWeatherTest.class);
 
     @Test
     public void verifyCityGeoLocationLongitudeTest() {
         String request = new OpenWeatherBuilderRequest().setCityId("629634").build();
-
         float expectedResult = Float.parseFloat("23.7");
         Response response = get(request);
         assertThat(response.getStatusCode(), is(equalTo(200))); //проверили, что сервис возвращает на статус 200 ОК

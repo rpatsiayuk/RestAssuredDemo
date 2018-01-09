@@ -1,18 +1,15 @@
 package com.openweather.builder;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Created by Raman_Patsiayuk
  */
 public class OpenWeatherBuilderRequest {
-    private String cityName;
-    private String id;
-    private String lat;
-    private String lon;
-    private String zipCode;
     private String url;
 
     public OpenWeatherBuilderRequest() {
-        this.url = "";
+        this.url = StringUtils.EMPTY;
     }
 
     public OpenWeatherBuilderRequest setCityName(String cityName) {
@@ -35,12 +32,12 @@ public class OpenWeatherBuilderRequest {
         return this;
     }
 
-    public OpenWeatherBuilderRequest setMode(String mode){
+    public OpenWeatherBuilderRequest setMode(String mode) {
         this.url += new StringBuilder().append("&mode=").append(mode);
         return this;
     }
 
     public String build() {
-        return new StringBuilder().append(this.url).append("&APPID=c893442b753870781d1f92e6457cd9a3").toString();
+        return this.url + "&APPID=c893442b753870781d1f92e6457cd9a3";
     }
 }

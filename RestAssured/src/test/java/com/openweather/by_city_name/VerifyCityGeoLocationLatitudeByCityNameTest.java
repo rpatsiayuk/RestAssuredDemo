@@ -2,6 +2,7 @@ package com.openweather.by_city_name;
 
 import com.openweather.BaseTest;
 import com.openweather.builder.OpenWeatherBuilderRequest;
+import io.qameta.allure.Feature;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * Created by Raman_Patsiayuk
  */
+@Feature("City geo location tests by city name")
 public class VerifyCityGeoLocationLatitudeByCityNameTest extends BaseTest {
     //http://api.openweathermap.org/data/2.5/weather?q=Brest,by&APPID=c893442b753870781d1f92e6457cd9a3
     //static final Logger LOGGER = Logger.getLogger(OpenWeatherTest.class);
@@ -23,7 +25,7 @@ public class VerifyCityGeoLocationLatitudeByCityNameTest extends BaseTest {
     public void verifyCityGeoLocationLatitudeTest() {
         String request = new OpenWeatherBuilderRequest().setCityName("Brest,by").build();
 
-        float expectedResult = Float.parseFloat("52.1");
+        float expectedResult = Float.parseFloat("52.09");
         Response response = get(request);
         assertThat(response.getStatusCode(), is(equalTo(200))); //проверили, что сервис возвращает на статус 200 ОК
         String json = response.asString(); // преобразовали наш response в строку

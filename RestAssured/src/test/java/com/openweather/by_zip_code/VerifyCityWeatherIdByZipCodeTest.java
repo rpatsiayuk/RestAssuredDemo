@@ -2,10 +2,7 @@ package com.openweather.by_zip_code;
 
 import com.openweather.BaseTest;
 import com.openweather.builder.OpenWeatherBuilderRequest;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.log4j.Logger;
@@ -23,6 +20,7 @@ import static org.hamcrest.Matchers.is;
 /**
  * Created by Raman_Patsiayuk
  */
+@Epic("City weather id by zip code")
 @Feature("City weather id by zip code")
 public class VerifyCityWeatherIdByZipCodeTest extends BaseTest {
     //http://api.openweathermap.org/data/2.5/weather?q=Brest,by&APPID=c893442b753870781d1f92e6457cd9a3

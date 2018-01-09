@@ -23,7 +23,6 @@ public class VerifyCityGeoLocationLatitudeByCityNameXmlTest extends BaseTest {
     static final Logger LOGGER = Logger.getLogger(VerifyCityGeoLocationLatitudeByCityNameXmlTest.class);
 
     @Test
-    @Ignore
     public void verifyCityGeoLocationLatitudeTest() {
         String request = new OpenWeatherBuilderRequest()
                 .setCityName("Brest,by")

@@ -7,6 +7,7 @@
     <groupId>rest-assured</groupId>
     <artifactId>restassured-example</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,6 +18,7 @@
         <commons-lang3-version>3.5</commons-lang3-version>
         <aspectj.version>1.8.10</aspectj.version>
         <allure-junit4.version>2.0-BETA21</allure-junit4.version>
+        <allure-junit-adaptor.version>1.5.4</allure-junit-adaptor.version>
     </properties>
 
     <dependencies>
@@ -52,6 +54,12 @@
             <version>${allure-junit4.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-junit-adaptor</artifactId>
+            <version>${allure-junit-adaptor.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -101,12 +109,17 @@
                 <plugin>
                     <groupId>org.mortbay.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
+                    <version>9.4.8.v20171121</version>
                     <configuration>
                         <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
-                        <!--<httpConnector>
-                            &lt;!&ndash;host>localhost</host&ndash;&gt;
-                            <port>7777</port>
-                        </httpConnector>-->
+                        <stopKey>STOP</stopKey>
+                        <stopPort>9090</stopPort>
+                        <scanIntervalSeconds>10</scanIntervalSeconds>
+                        <connectors>
+                            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                                <port>8082</port>
+                            </connector>
+                        </connectors>
                     </configuration>
                 </plugin>
             </plugins>
@@ -136,8 +149,8 @@
                 <version>2.8</version>
                 <configuration>
                     <reportVersion>2.3.1</reportVersion>
-                    <resultsDirectory>allure-results</resultsDirectory>
-                    <reportDirectory>allure-report</reportDirectory>
+                    <resultsDirectory>${basedir}/target/allure-results</resultsDirectory>
+                    <reportDirectory>${basedir}/target/allure-report</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>

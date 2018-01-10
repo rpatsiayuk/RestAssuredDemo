@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class OpenWeatherBuilderRequest {
     private String url;
+    private static final String APP_ID="c893442b753870781d1f92e6457cd9a3";
 
     public OpenWeatherBuilderRequest() {
         this.url = StringUtils.EMPTY;
@@ -38,6 +39,6 @@ public class OpenWeatherBuilderRequest {
     }
 
     public String build() {
-        return this.url + "&APPID=c893442b753870781d1f92e6457cd9a3";
+        return this.url + String.format("&APPID=%s",APP_ID);
     }
 }

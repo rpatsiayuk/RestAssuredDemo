@@ -81,6 +81,7 @@
                     <configuration>
                         <source>1.8</source>
                         <target>1.8</target>
+                        <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -89,7 +90,7 @@
                     <configuration>
                         <testFailureIgnore>false</testFailureIgnore>
                         <argLine>
-                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            -Xmx1024m -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         </argLine>
                         <properties>
                             <property>
@@ -159,8 +160,8 @@
                 <version>2.8</version>
                 <configuration>
                     <reportVersion>2.3.1</reportVersion>
-                    <resultsDirectory>allure-results</resultsDirectory>
-                    <reportDirectory>allure-report</reportDirectory>
+                    <!--<resultsDirectory>allure-results</resultsDirectory>
+                    <reportDirectory>allure-report</reportDirectory>-->
                 </configuration>
             </plugin>
         </plugins>

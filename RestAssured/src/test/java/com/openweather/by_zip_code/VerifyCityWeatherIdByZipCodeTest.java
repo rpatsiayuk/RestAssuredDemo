@@ -5,13 +5,11 @@ import com.openweather.builder.OpenWeatherBuilderRequest;
 import io.qameta.allure.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
-import java.util.List;
-
 import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.useRelaxedHTTPSValidation;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -24,7 +22,7 @@ import static org.hamcrest.Matchers.is;
 @Feature("City weather id by zip code")
 public class VerifyCityWeatherIdByZipCodeTest extends BaseTest {
     //http://api.openweathermap.org/data/2.5/weather?q=Brest,by&APPID=c893442b753870781d1f92e6457cd9a3
-    //static final Logger LOGGER = Logger.getLogger(VerifyCityWeatherIdByZipCodeTest.class);
+    static final Logger LOGGER = LogManager.getLogger(VerifyCityWeatherIdByZipCodeTest.class);
 
     @Test
     @Severity(SeverityLevel.CRITICAL)

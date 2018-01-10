@@ -19,6 +19,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <allure-junit4.version>2.0-BETA21</allure-junit4.version>
         <allure-junit-adaptor.version>1.5.4</allure-junit-adaptor.version>
+        <allure-rest-assured.version>2.0-BETA21</allure-rest-assured.version>
     </properties>
 
     <dependencies>
@@ -64,7 +65,11 @@
             <artifactId>allure-junit-adaptor</artifactId>
             <version>${allure-junit-adaptor.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure-rest-assured.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -116,8 +121,7 @@
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>9.4.8.v20171121</version>
                     <configuration>
-                        <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin
-                        </webAppSourceDirectory>
+                        <webAppSourceDirectory>${project.build.directory}/site/allure-maven-plugin</webAppSourceDirectory>
                         <stopKey>STOP</stopKey>
                         <stopPort>9090</stopPort>
                         <scanIntervalSeconds>10</scanIntervalSeconds>

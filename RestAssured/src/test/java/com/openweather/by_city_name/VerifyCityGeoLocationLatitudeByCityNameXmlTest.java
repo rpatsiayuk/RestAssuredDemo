@@ -5,8 +5,8 @@ import com.openweather.builder.OpenWeatherBuilderRequest;
 import io.restassured.path.json.JsonPath;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
-import org.apache.log4j.Logger;
-import org.junit.Ignore;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.get;
@@ -20,7 +20,7 @@ import static org.hamcrest.Matchers.is;
  */
 public class VerifyCityGeoLocationLatitudeByCityNameXmlTest extends BaseTest {
     //http://api.openweathermap.org/data/2.5/weather?q=Brest,by&APPID=c893442b753870781d1f92e6457cd9a3
-    static final Logger LOGGER = Logger.getLogger(VerifyCityGeoLocationLatitudeByCityNameXmlTest.class);
+    static final Logger LOGGER = LogManager.getLogger(VerifyCityGeoLocationLatitudeByCityNameXmlTest.class);
 
     @Test
     public void verifyCityGeoLocationLatitudeTest() {

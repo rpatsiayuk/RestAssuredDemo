@@ -29,11 +29,11 @@
             <version>${rest-assured}</version>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>
+        <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
             <version>${rest-assured}</version>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -95,7 +95,7 @@
                     <configuration>
                         <testFailureIgnore>false</testFailureIgnore>
                         <argLine>
-                            -Xmx1024m -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            -Xmx2048m -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         </argLine>
                         <properties>
                             <property>

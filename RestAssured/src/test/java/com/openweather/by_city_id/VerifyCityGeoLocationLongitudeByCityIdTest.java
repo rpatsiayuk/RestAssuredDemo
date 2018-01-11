@@ -25,7 +25,6 @@ import static org.hamcrest.Matchers.is;
 @Feature("City geo location tests by city Id")
 public class VerifyCityGeoLocationLongitudeByCityIdTest extends BaseTest {
     //static final Logger LOGGER = Logger.getLogger(OpenWeatherTest.class);
-
     @Test
     public void verifyCityGeoLocationLongitudeTest() {
         String request = new OpenWeatherBuilderRequest().setCityId("629634").build();
@@ -48,6 +47,8 @@ public class VerifyCityGeoLocationLongitudeByCityIdTest extends BaseTest {
                 .when()
                 .get(request)
                 .then()
+                .log()
+                .all()
                 .assertThat()
                 //.body("coord.lon", is(new BigDecimal(23.7)));
                 .body("coord.lon", is(23.7F));

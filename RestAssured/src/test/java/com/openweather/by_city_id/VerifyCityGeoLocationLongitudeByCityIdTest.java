@@ -3,17 +3,12 @@ package com.openweather.by_city_id;
 import com.openweather.BaseTest;
 import com.openweather.builder.OpenWeatherBuilderRequest;
 import io.qameta.allure.Feature;
-import io.restassured.config.RestAssuredConfig;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
-import static io.restassured.config.JsonConfig.jsonConfig;
-import static io.restassured.path.json.config.JsonPathConfig.NumberReturnType.BIG_DECIMAL;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -39,9 +34,12 @@ public class VerifyCityGeoLocationLongitudeByCityIdTest extends BaseTest {
 
     @Test
     public void verifyCityGeoLocationLongitudeCucumberTest() {
-        String request = new OpenWeatherBuilderRequest().setCityId("629634").build();
+        String request = new OpenWeatherBuilderRequest()
+                .setCityId("629634")
+                .build();
         given()
                 //.config(RestAssuredConfig.config().jsonConfig(jsonConfig().numberReturnType(BIG_DECIMAL)))
+                //.parameters("firstName", "John", "lastName", "Doe")
                 .log()
                 .all()
                 .when()

@@ -1,4 +1,4 @@
-package com.openweather.by_city_id;
+package com.openweather.weather.by_city_id;
 
 import com.openweather.BaseTest;
 import com.openweather.builder.OpenWeatherBuilderRequest;

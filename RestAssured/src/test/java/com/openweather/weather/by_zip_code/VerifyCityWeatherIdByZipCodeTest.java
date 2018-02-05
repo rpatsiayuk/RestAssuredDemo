@@ -1,4 +1,4 @@
-package com.openweather.by_zip_code;
+package com.openweather.weather.by_zip_code;
 
 import com.openweather.BaseTest;
 import com.openweather.builder.OpenWeatherBuilderRequest;
